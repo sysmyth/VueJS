@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Computed vs Methods</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h2>Computed vs Method</h2>
+    <br>
+    <h3>Method Counter</h3>
+    <button @click="counter++">Add 1</button>
+    <button @click="counter+=5">Add 5</button>
+    <p>Method Counter : {{ methodCount() }}</p>
+    <!-- 'method' above is called every time the page is updated -->
+    <!-- even below when the computed method is called -->
+    <br>
+    <h3>Computed Counter</h3>
+    <button @click="secondCounter++">Add 1</button>
+    <button @click="secondCounter+=5">Add 5</button>
+    <p>Computed Counter : {{ computedCount }}</p>
+    <!-- 'Computed' method above is ONLY CALLED when the 'secondCounter' value is updated -->
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        counter: 0,
+        secondCounter: 0
+      },
+      methods: {
+          //ES5 way of declaring method
+        methodCount: function() {
+            console.log('method')
+            //this gets called on every page update
+            return this.counter;
+        }
+      },
+      computed: {
+          //ES6 way of declating method
+        computedCount() {
+            console.log('computed')
+            //only gets called when the property below is updated
+            //NOT on every page update
+            return this.secondCounter;
+        }
+      }
+    })
+  </script>
+</html>
