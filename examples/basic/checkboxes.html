@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checkboxes</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="root">
+
+        <label>
+            <input type="checkbox" value="Apple" v-model="searchIndexes">
+            Apple
+        </label>
+        <br />
+
+        <label>
+            <input type="checkbox" value="Google" v-model="searchIndexes">
+            Google
+        </label>
+        <br />
+
+        <label>
+            <input type="checkbox" value="Microsoft" v-model="searchIndexes">
+            Microsoft
+        </label>
+        <br />
+
+        <small>
+            selected: {{searchIndexes}}
+        </small>
+
+    </div>
+
+    <script>
+        var myVue = new Vue({
+            el:'#root',
+            data: {
+                searchIndexes : []
+            }
+        })
+    </script>
+
+</body>
+</html>

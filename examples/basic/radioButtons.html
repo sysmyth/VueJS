@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Radio Buttons</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="root">
+
+        <form>
+            Please specify your gender:<br><br>
+
+            <div>
+
+                <input type="radio" value="male" name="gender" id="male" v-model="searchIndex">
+                <label for="male">Male</label><br>
+
+                <input type="radio" value="female" name="gender" id="female" v-model="searchIndex">
+                <label for="female">Female</label><br>
+
+                <input type="radio" value="other" name="gender" id="other" v-model="searchIndex">
+                <label for="other">Other</label>
+
+            </div><br><br>
+
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+
+            <small>
+                {{searchIndex}}
+            </small>
+
+        </form>
+
+    </div>
+
+    <script>
+        var myVue = new Vue({
+            el:'#root',
+            data: {
+                searchIndex : 'female', //set on load
+                //searchIndex: [] unset on load
+            }
+        })
+    </script>
+
+</body>
+</html>
